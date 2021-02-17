@@ -24,7 +24,7 @@ public class Game {
     public static void init(long window) {
         // Setup shaders
         Shaders.initShaders();
-        //window1 = window;
+
         // Generate all the ids
         triangleVaoId = GL33.glGenVertexArrays();
         triangleVboId = GL33.glGenBuffers();
@@ -70,12 +70,12 @@ public class Game {
                 {
                     GL33.glBindBuffer(GL33.GL_ARRAY_BUFFER, triangleVaoId);
                     if (vertices[0] >= 1.0f) {
-                        System.out.println("triangle 1 touch");
+                        //System.out.println("triangle 1 touch");
                         vertices[0] = -2.0f;
                         vertices[3] = -1.0f;
                         vertices[6] = -1.0f;
-                    } else if (vertices[0] == 0.0f) {
-                        System.out.println("triangle 1 touch2");
+                    } else if (vertices[0] >= 0.0f) {
+                        //System.out.println("triangle 1 touch2");
                     }
                     vertices[3] += amount;
                     vertices[0] += amount;
@@ -92,12 +92,12 @@ public class Game {
                 {
                     GL33.glBindBuffer(GL33.GL_ARRAY_BUFFER, triangleVboId);
                     if (vertices[9] >= 1.0f) {
-                        System.out.println("triangle 2 touch");
+                        //System.out.println("triangle 2 touch");
                         vertices[9] = -2.0f;
                         vertices[12] = -2.0f;
                         vertices[15] = -1.0f;
-                    } else if (vertices[9] == 0.0f) {
-                        System.out.println("triangle 2 touch2");
+                    } else if (vertices[9] >= 0.0f) {
+                        //System.out.println("triangle 2 touch2");
                     }
                     vertices[9] += amount;
                     vertices[15] += amount;
