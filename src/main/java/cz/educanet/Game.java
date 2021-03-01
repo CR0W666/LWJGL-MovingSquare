@@ -21,6 +21,7 @@ public class Game {
     private static int triangleVaoId;
     private static int triangleVboId;
     private static double amount = 0.0002;
+
     public static void init(long window) {
         // Setup shaders
         Shaders.initShaders();
@@ -64,18 +65,16 @@ public class Game {
                 amount -= 0.000001;
                 System.out.println("slowed down");
             }
-            if (GLFW.glfwGetKey(window, GLFW.GLFW_KEY_SPACE) == GLFW.GLFW_PRESS) {
+            //if (GLFW.glfwGetKey(window, GLFW.GLFW_KEY_SPACE) == GLFW.GLFW_PRESS) {
 
                 GL33.glBindVertexArray(triangleVaoId);
                 {
                     GL33.glBindBuffer(GL33.GL_ARRAY_BUFFER, triangleVaoId);
                     if (vertices[0] >= 1.0f) {
-                        //System.out.println("triangle 1 touch");
+
                         vertices[0] = -2.0f;
                         vertices[3] = -1.0f;
                         vertices[6] = -1.0f;
-                    } else if (vertices[0] >= 0.0f) {
-                        //System.out.println("triangle 1 touch2");
                     }
                     vertices[3] += amount;
                     vertices[0] += amount;
@@ -96,8 +95,6 @@ public class Game {
                         vertices[9] = -2.0f;
                         vertices[12] = -2.0f;
                         vertices[15] = -1.0f;
-                    } else if (vertices[9] >= 0.0f) {
-                        //System.out.println("triangle 2 touch2");
                     }
                     vertices[9] += amount;
                     vertices[15] += amount;
@@ -110,6 +107,6 @@ public class Game {
                     GL33.glBufferData(GL33.GL_ARRAY_BUFFER, fb, GL33.GL_STATIC_DRAW);
 
                 }
-            }
+            //}
         }
 }
